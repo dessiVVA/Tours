@@ -7,24 +7,22 @@ body {
 
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .container{
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  max-width: 45rem;
-  
-}
-.container > * {
-  /* flex: 1 1 100%; */
   flex-direction: column;
-  justify-content: center;
+  gap: 30px;
+  max-width: 40rem;
 }
+
 .card{
   border-radius: 7px;
   box-shadow: 3px 3px 20px #7a7a7a;
   background-color: white;
+  padding-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 button{
@@ -32,6 +30,7 @@ button{
   border-radius: 5px;
   width: 150px;
   height: 30px;
+  align-self: center;
   
   background-color: white;
   color: red;
@@ -43,10 +42,31 @@ h1{
   text-align: center;
   font-size: 30pt;
   flex: 1 1 100%;
+
+  margin-bottom: 0;
 }
 .underline{
-  width: 50px;
-  height: 5px;
-
   background-color: darkcyan;
+  height: 5px;
+  width: 90px;
+  align-self: center;
+}
+.textArea{
+  padding: 30px 30px 0px;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+.description {
+  flex-direction: 1 1 100%;
+}
+.tourName {
+  flex: 1 1 80%;
+}
+.img{
+  height: 20rem;
+  overflow: hidden;
+}
+img{
+  width: 100%;
 }
