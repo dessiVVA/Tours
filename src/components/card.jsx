@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Card = () => {
+const Card = (props) => {
+  const [isShown, setIsShown] = useState(true);
+  const [isReadMore, setIsReadMore] = useState(false);
+
+  const handleNotInterested = () => {
+    props.removeTour(props.id)
+  };
+
   return (
     <div className="card">
       <div className="img">
-        <img
-          src="https://dl.airtable.com/.attachments/a0cd0702c443f31526267f38ea5314a1/2447eb7a/paris.jpg"
-          alt=""
-        />
+        <img src={props.image} alt="Stuff" />
       </div>
 
       <div className="textArea">
-        <h3 className="tourName">Best of Paris in 7 days</h3>
-        <p className="price">$1,995</p>
+        <h3 className="tourName">{props.name}</h3>
+        <p className="price">${props.price}</p>
         <p className="description">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit eius
-          enim quae nesciunt tempora at blanditiis eveniet delectus facere
-          excepturi!
+          {isReadMore ? props.info : props.info.substring(0, 100)}
+          <button
+            className="readMore"
+            onClick={() => setIsReadMore(!isReadMore)}
+          >
+            {isReadMore ? "Show less" : "Read more"}
+          </button>
         </p>
       </div>
-      <button type="button">Not Interested</button>
+      <button className="btn" type="button" onClick={handleNotInterested}>
+        Not Interested
+      </button>
     </div>
   );
 };

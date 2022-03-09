@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "./card";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     return(
         <div className="container">
             <h1>Our Tours</h1>
             <div className="underline"></div>
-            <Card />
-            <Card />
+            {props.tours.map((tour) => 
+            <Card removeTour={props.removeTour} key={tour.id} {...tour} />)}
         </div>
     );
 }
